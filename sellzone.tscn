@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cal0xk681xf2o"]
+
+[ext_resource type="Script" path="res://sellzone.gd" id="1_ykkm8"]
+[ext_resource type="Texture2D" uid="uid://cuwcykyuta1ko" path="res://farmingTilesheetComplete.png" id="2_sh0bu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n11qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egigm"]
+atlas = ExtResource("2_sh0bu")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53h7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egigm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sellzone" type="StaticBody2D"]
+script = ExtResource("1_ykkm8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_n11qt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_53h7c")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

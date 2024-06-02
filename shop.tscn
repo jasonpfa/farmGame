@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://ioeeujuor0go"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_2qem8"]
+[ext_resource type="Texture2D" uid="uid://cuwcykyuta1ko" path="res://farmingTilesheetComplete.png" id="1_nh32f"]
+[ext_resource type="PackedScene" uid="uid://clv5w5ec0wy2x" path="res://carrot_seedpack.tscn" id="3_4uleb"]
+[ext_resource type="PackedScene" uid="uid://cy55xve7cut6s" path="res://onion_seedpack.tscn" id="4_1juwx"]
+[ext_resource type="PackedScene" uid="uid://b5818kmk4e3gh" path="res://shopmenu.tscn" id="5_evfgu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0dsf"]
+atlas = ExtResource("1_nh32f")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64rl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0dsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c74jd"]
+atlas = ExtResource("1_nh32f")
+region = Rect2(0, 174, 34, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26ad5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c74jd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rco5a"]
+size = Vector2(28, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahwnw"]
+radius = 12.0416
+
+[node name="shop" type="StaticBody2D"]
+script = ExtResource("1_2qem8")
+
+[node name="shopworker" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_64rl5")
+
+[node name="shopart" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -7)
+sprite_frames = SubResource("SpriteFrames_26ad5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_rco5a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_ahwnw")
+
+[node name="carrot_seedpack" parent="." instance=ExtResource("3_4uleb")]
+visible = false
+position = Vector2(22, 0)
+
+[node name="onion_seedpack" parent="." instance=ExtResource("4_1juwx")]
+visible = false
+position = Vector2(26, 1)
+
+[node name="shopmenu" parent="." instance=ExtResource("5_evfgu")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
