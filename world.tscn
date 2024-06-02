@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8qi88dg852he"]
+[gd_scene load_steps=28 format=3 uid="uid://b8qi88dg852he"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_5qauf"]
 [ext_resource type="Texture2D" uid="uid://cuwcykyuta1ko" path="res://farmingTilesheetComplete.png" id="1_naucf"]
@@ -96,6 +96,30 @@ texture = ExtResource("1_naucf")
 [sub_resource type="TileSet" id="TileSet_bg2c8"]
 sources/0 = SubResource("TileSetAtlasSource_agbrm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i00l"]
+size = Vector2(47, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4o32"]
+size = Vector2(5, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hcht"]
+size = Vector2(101, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7n6h"]
+size = Vector2(31, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rju4h"]
+size = Vector2(5, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydh5p"]
+size = Vector2(0.770044, 2.47336)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tho0y"]
+scenes/1/scene = ExtResource("3_x8uvn")
+
+[sub_resource type="TileSet" id="TileSet_i0q1w"]
+sources/1 = SubResource("TileSetScenesCollectionSource_tho0y")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8eqj0"]
 atlas = ExtResource("1_naucf")
 region = Rect2(128, 32, 16, 16)
@@ -152,8 +176,47 @@ tile_set = SubResource("TileSet_bg2c8")
 format = 2
 layer_0/tile_data = PackedInt32Array(458750, 524288, 8, 458751, 524288, 8, 393216, 524288, 8, 393217, 524288, 8, 393218, 524288, 8, 393219, 524288, 8, 393220, 524288, 8, 393221, 524288, 8, 393222, 524288, 8, 393223, 524288, 8, 393224, 524288, 8, 393225, 524288, 8, 393226, 655360, 9, 393227, 524288, 8, 393229, 524288, 327688, 393230, 524288, 327688, 393231, 655360, 262152, 327695, 524288, 65544, 262159, 524288, 65544, 196623, 655360, 65544, 196624, 524288, 327688, 196625, 524288, 327688, 196626, 524288, 327688, 196627, 524288, 327688, 196628, 524288, 327688, 393228, 524288, 327688, 458762, 524288, 65544, 524298, 524288, 65544, 589834, 655360, 196616, 589835, 524288, 327688, 589836, 524288, 327688, 524301, 458752, 196616, 655373, 458752, 262152, 589837, 589824, 8, 327690, 524288, 65544, 262154, 524288, 65544, 196618, 524288, 65544, 131082, 524288, 65544, 65546, 589824, 65544, 65547, 524288, 327688, 65545, 524288, 327688, 65548, 524288, 327688, 65544, 458752, 8, 6, 393216, 8, 65541, 393216, 8, 131081, 393216, 8, 131079, 393216, 8, 65549, 458752, 131080, 131092, 589824, 7, 131091, 589824, 7, 720902, 720896, 6, 720901, 720896, 6, 720900, 720896, 6, 720899, 720896, 6, 720898, 720896, 6, 720903, 786432, 7, 720897, 524288, 7, 458753, 524288, 6, 458759, 786432, 6, 458758, 720896, 6, 458757, 720896, 7, 458754, 720896, 6, 458755, 720896, 6, 458756, 655360, 7, 524289, 458752, 7, 589825, 458752, 7, 655361, 458752, 7, 524295, 458752, 7, 589831, 458752, 7, 655367, 458752, 7, 131090, 720896, 7)
 
-[node name="growingzone" parent="." instance=ExtResource("3_x8uvn")]
-position = Vector2(276, 165)
+[node name="StaticBody2D2" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D2"]
+position = Vector2(44.5, 120)
+shape = SubResource("RectangleShape2D_2i00l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D"]
+position = Vector2(23.5, 152)
+shape = SubResource("RectangleShape2D_l4o32")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D3"]
+position = Vector2(71.5, 184)
+shape = SubResource("RectangleShape2D_1hcht")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D4"]
+position = Vector2(106.5, 120)
+shape = SubResource("RectangleShape2D_f7n6h")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D5"]
+position = Vector2(119.5, 152)
+shape = SubResource("RectangleShape2D_rju4h")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/StaticBody2D6"]
+position = Vector2(317.5, 40)
+scale = Vector2(48.0492, -5.66033)
+shape = SubResource("RectangleShape2D_ydh5p")
+
+[node name="growingzoneTileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_i0q1w")
+format = 2
+layer_0/tile_data = PackedInt32Array(655377, 1, 65536, 655378, 1, 65536, 655379, 1, 65536, 655380, 1, 65536, 720916, 1, 65536, 720915, 1, 65536, 720914, 1, 65536, 720913, 1, 65536, 786449, 1, 65536, 786450, 1, 65536, 786451, 1, 65536, 786452, 1, 65536)
 
 [node name="onion_seedpack" parent="." instance=ExtResource("4_kp64x")]
 position = Vector2(264, 113)
@@ -185,23 +248,24 @@ position = Vector2(327, 227)
 sprite_frames = SubResource("SpriteFrames_ikbuv")
 animation = &"onion"
 
-[node name="sellzone" parent="." instance=ExtResource("7_b7chg")]
-position = Vector2(179, 37)
-
 [node name="coinstext" type="RichTextLabel" parent="."]
-offset_left = 323.0
+offset_left = 314.0
 offset_top = 1.0
 offset_right = 363.0
 offset_bottom = 41.0
 text = "= 0"
+scroll_active = false
 
 [node name="coinsicon" type="AnimatedSprite2D" parent="."]
-position = Vector2(315, 13)
+position = Vector2(305, 13)
 sprite_frames = SubResource("SpriteFrames_ikbuv")
 animation = &"coins"
 
 [node name="shop" parent="." instance=ExtResource("8_0cbts")]
 position = Vector2(231, 39)
+
+[node name="sellzone" parent="." instance=ExtResource("7_b7chg")]
+position = Vector2(179, 37)
 
 [node name="chicken" parent="." instance=ExtResource("9_ofi0l")]
 position = Vector2(78, 186)
@@ -211,7 +275,13 @@ texture_filter = 1
 position = Vector2(17, 128)
 
 [node name="weather_control" parent="." instance=ExtResource("10_yd44c")]
+visible = false
 
 [node name="day_and_night" parent="." instance=ExtResource("11_404xm")]
 visible = false
 position = Vector2(-392, -245)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(183, 124)
+scale = Vector2(0.775886, 1.90463)
+zoom = Vector2(1.5, 1.5)
